@@ -14,6 +14,13 @@
 #include <boost/mpl/pop_front.hpp>
 #include "serialization.h"
 
+#include <boost/serialization/serialization.hpp>
+#include <boost/serialization/version.hpp>
+#if BOOST_VERSION / 100000 == 1 && BOOST_VERSION / 100 % 1000 == 74
+#include <boost/serialization/library_version_type.hpp>
+#endif
+#include <boost/serialization/list.hpp>
+
 template <class Archive, class T>
 struct variant_serialization_traits
 {

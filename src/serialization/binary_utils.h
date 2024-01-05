@@ -6,6 +6,13 @@
 #include <sstream>
 #include "binary_archive.h"
 
+#include <boost/serialization/serialization.hpp>
+#include <boost/serialization/version.hpp>
+#if BOOST_VERSION / 100000 == 1 && BOOST_VERSION / 100 % 1000 == 74
+#include <boost/serialization/library_version_type.hpp>
+#endif
+#include <boost/serialization/list.hpp>
+
 namespace serialization {
 
 template <class T>

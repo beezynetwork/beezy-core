@@ -8,6 +8,13 @@
 #include "json_archive.h"
 #include "variant.h"
 
+#include <boost/serialization/serialization.hpp>
+#include <boost/serialization/version.hpp>
+#if BOOST_VERSION / 100000 == 1 && BOOST_VERSION / 100 % 1000 == 74
+#include <boost/serialization/library_version_type.hpp>
+#endif
+#include <boost/serialization/list.hpp>
+
 template <bool W>
 struct debug_archive : public json_archive<W> {
   typedef typename json_archive<W>::stream_type stream_type;
