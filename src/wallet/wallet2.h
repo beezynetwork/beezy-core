@@ -6,7 +6,6 @@
 
 #pragma once
 #include <memory>
-#include <boost/serialization/list.hpp>
 #include <boost/serialization/vector.hpp>
 #include <boost/serialization/deque.hpp>
 #include <boost/serialization/singleton.hpp>
@@ -20,7 +19,6 @@
 #include <boost/serialization/library_version_type.hpp>
 #endif
 #include <boost/serialization/list.hpp>
-
 
 #include "include_base_utils.h"
 #include "profile_tools.h"
