@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018 Chinet Project
+// Copyright (c) 2023-2024 Beezy Network
 // Copyright (c) 2014-2018 The Louisdor Project
 // Copyright (c) 2014-2015 The Boolberry developers
 // Distributed under the MIT/X11 software license, see the accompanying

@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018 Chinet Project
+// Copyright (c) 2023-2024 Beezy Network
 // Copyright (c) 2014-2018 The Louisdor Project
 // Copyright (c) 2012-2013 The Cryptonote developers
 // Copyright (c) 2012-2013 The Boolberry developers
