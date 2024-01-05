@@ -30,6 +30,13 @@
 #include "core_runtime_config.h"
 #include "wallet/wallet_public_structs_defs.h"
 
+#include <boost/serialization/serialization.hpp>
+#include <boost/serialization/version.hpp>
+#if BOOST_VERSION / 100000 == 1 && BOOST_VERSION / 100 % 1000 == 74
+#include <boost/serialization/library_version_type.hpp>
+#endif
+#include <boost/serialization/list.hpp>
+
 
 // ------ get_tx_type_definition -------------
 #define       GUI_TX_TYPE_NORMAL                  0

@@ -13,6 +13,13 @@
 #include "version.h"
 #include "currency_protocol/currency_protocol_handler.h"
 
+#include <boost/serialization/serialization.hpp>
+#include <boost/serialization/version.hpp>
+#if BOOST_VERSION / 100000 == 1 && BOOST_VERSION / 100 % 1000 == 74
+#include <boost/serialization/library_version_type.hpp>
+#endif
+#include <boost/serialization/list.hpp>
+
 #undef LOG_DEFAULT_CHANNEL 
 #define LOG_DEFAULT_CHANNEL "stratum"
 ENABLE_CHANNEL_BY_DEFAULT("stratum");
