@@ -18,6 +18,13 @@
 #include "common/crypto_boost_serialization.h"
 #include "offers_services_helpers.h"
 
+#include <boost/serialization/serialization.hpp>
+#include <boost/serialization/version.hpp>
+#if BOOST_VERSION / 100000 == 1 && BOOST_VERSION / 100 % 1000 == 74
+#include <boost/serialization/library_version_type.hpp>
+#endif
+#include <boost/serialization/list.hpp>
+
 #define CURRENT_BLOCK_ARCHIVE_VER   2
 BOOST_CLASS_VERSION(currency::block, CURRENT_BLOCK_ARCHIVE_VER)
 
