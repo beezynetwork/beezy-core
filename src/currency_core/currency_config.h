@@ -20,11 +20,11 @@
 #define CURRENCY_MAX_BLOCK_NUMBER                       500000000
 #define CURRENCY_MAX_BLOCK_SIZE                         500000000  // block header blob limit, never used!
 #define CURRENCY_TX_MAX_ALLOWED_OUTS                    2000
-#define CURRENCY_PUBLIC_ADDRESS_BASE58_PREFIX           0x3055   // addresses start with 'ch'
-#define CURRENCY_PUBLIC_INTEG_ADDRESS_BASE58_PREFIX     0x2176 // integrated addresses start with 'iC'
-#define CURRENCY_PUBLIC_INTEG_ADDRESS_V2_BASE58_PREFIX  0x3746 // integrated addresses start with 'aC' (new format)
-#define CURRENCY_PUBLIC_AUDITABLE_ADDRESS_BASE58_PREFIX 0x43c6 // auditable addresses start with 'aCx'
-#define CURRENCY_PUBLIC_AUDITABLE_INTEG_ADDRESS_BASE58_PREFIX 0x1d4549 // auditable integrated addresses start with 'aiCX'
+#define CURRENCY_PUBLIC_ADDRESS_BASE58_PREFIX           0x1351   // addresses start with 'bz'
+#define CURRENCY_PUBLIC_INTEG_ADDRESS_BASE58_PREFIX     0x1476 // integrated addresses start with 'iB'
+#define CURRENCY_PUBLIC_INTEG_ADDRESS_V2_BASE58_PREFIX  0x14f6 // integrated addresses start with 'iB' (new format)
+#define CURRENCY_PUBLIC_AUDITABLE_ADDRESS_BASE58_PREFIX 0x2a46 // auditable addresses start with 'aBx'
+#define CURRENCY_PUBLIC_AUDITABLE_INTEG_ADDRESS_BASE58_PREFIX 0x4549 // auditable integrated addresses start with 'aiBX'
 #define CURRENCY_MINED_MONEY_UNLOCK_WINDOW              10
 #define CURRENT_TRANSACTION_VERSION                     1
 #define HF1_BLOCK_MAJOR_VERSION                         1
@@ -168,7 +168,7 @@
 
 
 
-#define CURRENCY_NAME_ABR                               "CHN"
+#define CURRENCY_NAME_ABR                               "BEEZY"
 #define CURRENCY_NAME_BASE                              "beezy"
 #define CURRENCY_NAME_SHORT_BASE                        "beezy"
 #ifndef TESTNET
