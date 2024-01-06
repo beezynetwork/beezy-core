@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019 Chinet Project
+// Copyright (c) 2014-2019 beezy Project
 // Copyright (c) 2014-2018 The Louisdor Project
 // Copyright (c) 2012-2013 The Cryptonote developers
 // Distributed under the MIT/X11 software license, see the accompanying
@@ -169,8 +169,8 @@
 
 
 #define CURRENCY_NAME_ABR                               "CHN"
-#define CURRENCY_NAME_BASE                              "Chinet"
-#define CURRENCY_NAME_SHORT_BASE                        "Chinet"
+#define CURRENCY_NAME_BASE                              "beezy"
+#define CURRENCY_NAME_SHORT_BASE                        "beezy"
 #ifndef TESTNET
 #define CURRENCY_NAME                                   CURRENCY_NAME_BASE
 #define CURRENCY_NAME_SHORT                             CURRENCY_NAME_SHORT_BASE

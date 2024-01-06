@@ -1,11 +1,11 @@
 {
-  "name": "chinet",
+  "name": "beezy",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build --watch": "ng build --output-path \"/Work/Chinet/html/\" --watch",
+    "build --watch": "ng build --output-path \"/Work/beezy/html/\" --watch",
     "build --html": "ng build --output-path \"../html/\"",
     "test": "ng test",
     "lint": "ng lint",

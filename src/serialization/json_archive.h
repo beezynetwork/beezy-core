@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019 The Chinet Project
+// Copyright (c) 2014-2019 The beezy Project
 // Copyright (c) 2014-2017 The The Louisdor Project
 // Copyright (c) 2012-2013 The Cryptonote developers
 // Distributed under the MIT/X11 software license, see the accompanying

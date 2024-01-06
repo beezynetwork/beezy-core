@@ -187,7 +187,7 @@ ENABLE_SHARED_PCH_EXECUTABLE(simplewallet)
 
 set_property(TARGET common crypto currency_core rpc stratum wallet PROPERTY FOLDER "libs")
 set_property(TARGET daemon simplewallet connectivity_tool PROPERTY FOLDER "prog")
-set_property(TARGET daemon PROPERTY OUTPUT_NAME "chinetd")
+set_property(TARGET daemon PROPERTY OUTPUT_NAME "beezyd")
 
 if(BUILD_GUI)
 
@@ -198,38 +198,38 @@ if(BUILD_GUI)
   set(CMAKE_AUTOMOC ON)
   set(CMAKE_INCLUDE_CURRENT_DIR ON)
   SET(MACOSX_BUNDLE_ICON_FILE app.icns)
-  add_executable(Chinet WIN32 MACOSX_BUNDLE ${QTDAEMON} )
-  ENABLE_SHARED_PCH(Chinet QTDAEMON)
-  ENABLE_SHARED_PCH_EXECUTABLE(Chinet)
+  add_executable(beezy WIN32 MACOSX_BUNDLE ${QTDAEMON} )
+  ENABLE_SHARED_PCH(beezy QTDAEMON)
+  ENABLE_SHARED_PCH_EXECUTABLE(beezy)
 	  
-  QT5_USE_MODULES(Chinet WebEngineWidgets WebChannel)
+  QT5_USE_MODULES(beezy WebEngineWidgets WebChannel)
   find_package(Qt5PrintSupport REQUIRED)
 
-  target_link_libraries(Chinet wallet rpc currency_core crypto common zlibstatic ethash Qt5::WebEngineWidgets Qt5::PrintSupport ${CMAKE_THREAD_LIBS_INIT} ${Boost_LIBRARIES})
+  target_link_libraries(beezy wallet rpc currency_core crypto common zlibstatic ethash Qt5::WebEngineWidgets Qt5::PrintSupport ${CMAKE_THREAD_LIBS_INIT} ${Boost_LIBRARIES})
   if (UNIX AND NOT APPLE)
-	target_link_libraries(Chinet rt)
+	target_link_libraries(beezy rt)
   endif()
 
   if(APPLE)
-    target_link_libraries(Chinet ${COCOA_LIBRARY})
-    set_property(TARGET Chinet PROPERTY XCODE_ATTRIBUTE_ENABLE_HARDENED_RUNTIME YES)
+    target_link_libraries(beezy ${COCOA_LIBRARY})
+    set_property(TARGET beezy PROPERTY XCODE_ATTRIBUTE_ENABLE_HARDENED_RUNTIME YES)
   endif()
   if(MSVC)
-    target_link_libraries(Chinet shlwapi.lib)
+    target_link_libraries(beezy shlwapi.lib)
   endif()
 
-  set_property(TARGET Chinet PROPERTY FOLDER "prog")
-  set_target_properties(Chinet PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/gui/qt-daemon/Info.plist.in)
+  set_property(TARGET beezy PROPERTY FOLDER "prog")
+  set_target_properties(beezy PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/gui/qt-daemon/Info.plist.in)
 
   set(HTML_DIR ${CMAKE_CURRENT_SOURCE_DIR}/gui/qt-daemon/layout/html)
-  set_target_properties(Chinet PROPERTIES VS_DEBUGGER_COMMAND_ARGUMENTS "--html-path=${HTML_DIR}")
+  set_target_properties(beezy PROPERTIES VS_DEBUGGER_COMMAND_ARGUMENTS "--html-path=${HTML_DIR}")
 
   set(CMAKE_AUTOMOC OFF)
 
   # GUI convenience "bundle"
   # set(GUI_DIR ${CMAKE_CURRENT_BINARY_DIR}/gui)
-  # set_target_properties(Chinet PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${GUI_DIR})
-  # add_custom_command(TARGET Chinet POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${HTML_DIR} ${GUI_DIR}/html)
+  # set_target_properties(beezy PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${GUI_DIR})
+  # add_custom_command(TARGET beezy POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${HTML_DIR} ${GUI_DIR}/html)
 endif()
 
 if(APPLE)

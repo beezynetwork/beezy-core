@@ -623,10 +623,10 @@ export class AppComponent implements OnInit, OnDestroy {
   getMoneyEquivalent() {
     this.http.get('https://api.coingecko.com/api/v3/ping').subscribe(
       () => {
-        this.http.get('https://api.coingecko.com/api/v3/simple/price?ids=chinet&vs_currencies=usd&include_24hr_change=true').subscribe(
+        this.http.get('https://api.coingecko.com/api/v3/simple/price?ids=beezy&vs_currencies=usd&include_24hr_change=true').subscribe(
           data => {
-            this.variablesService.moneyEquivalent = data['chinet']['usd'];
-            this.variablesService.moneyEquivalentPercent = data['chinet']['usd_24h_change'];
+            this.variablesService.moneyEquivalent = data['beezy']['usd'];
+            this.variablesService.moneyEquivalentPercent = data['beezy']['usd_24h_change'];
           },
           error => {
             console.warn('api.coingecko.com price error: ', error);

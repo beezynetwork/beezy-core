@@ -557,7 +557,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Work\chinet_ui\html_source\src\styles.scss */"./src/styles.scss");
+module.exports = __webpack_require__(/*! D:\Work\beezy_ui\html_source\src\styles.scss */"./src/styles.scss");
 
 
 /***/ })

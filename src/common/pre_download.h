@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Chinet Project
+// Copyright (c) 2020 beezy Project
 // Copyright (c) 2012-2018 The Boolberry developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -21,8 +21,8 @@ namespace tools
   };
 
 #ifndef TESTNET
-  //static constexpr pre_download_entry c_pre_download_mdbx = { "http://95.217.42.247/pre-download/chinet_mdbx_95_1569000.pak", "c2aff6fb65c2d7a40492738c75d1d04f2f35388d3c1a664aeb77420f2d90d644", 1740147926, 3221176320 };
-  //static constexpr pre_download_entry c_pre_download_lmdb = { "http://95.217.42.247/pre-download/chinet_lmdb_95_1569000.pak", "f673636638b666b36c976168a3c64b2fd1fcf071c41b5d9cf01ed58a5924f80a", 2244905636, 3216977920 };
+  //static constexpr pre_download_entry c_pre_download_mdbx = { "http://95.217.42.247/pre-download/beezy_mdbx_95_1569000.pak", "c2aff6fb65c2d7a40492738c75d1d04f2f35388d3c1a664aeb77420f2d90d644", 1740147926, 3221176320 };
+  //static constexpr pre_download_entry c_pre_download_lmdb = { "http://95.217.42.247/pre-download/beezy_lmdb_95_1569000.pak", "f673636638b666b36c976168a3c64b2fd1fcf071c41b5d9cf01ed58a5924f80a", 2244905636, 3216977920 };
   static constexpr pre_download_entry c_pre_download_mdbx = { "", "", 0, 0 };
   static constexpr pre_download_entry c_pre_download_lmdb = { "", "", 0, 0 };
 #else

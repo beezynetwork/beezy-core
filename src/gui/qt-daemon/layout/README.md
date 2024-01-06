@@ -1,2 +1,2 @@
-# chinet_ui
-UI development from Chinet  project
+# beezy_ui
+UI development from beezy  project

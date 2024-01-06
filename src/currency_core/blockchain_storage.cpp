@@ -1946,7 +1946,7 @@ bool blockchain_storage::is_reorganize_required(const block_extended_info& main_
   else if (alt_chain_bei.height > m_core_runtime_config.hard_fork_01_starts_after_height)
   {
     //new rules, applied after HARD_FORK_1
-    //to learn this algo please read https://github.com/chinet-project/docs/blob/master/chinet/PoS_Analysis_and_improvements_proposal.pdf
+    //to learn this algo please read https://github.com/beezynetwork/docs/blob/master/beezy/PoS_Analysis_and_improvements_proposal.pdf
 
     wide_difficulty_type difficulty_pos_at_split_point = get_x_difficulty_after_height(connection_point.height - 1, true);
     wide_difficulty_type difficulty_pow_at_split_point = get_x_difficulty_after_height(connection_point.height - 1, false);

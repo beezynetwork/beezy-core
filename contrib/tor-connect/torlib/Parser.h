@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2021, Chinet project, https://chinet.io
+ * Copyright (c) 2021, beezy project, https://beezy.io
  * Copyright (c) 2021, Mikhail Butolin, bml505@hotmail.com
  * Copyright (c) 2016 Petr Benes https://github.com/wbenny/mini-tor
  * All rights reserved.

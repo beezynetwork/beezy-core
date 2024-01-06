@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2020 Chinet Project
+// Copyright (c) 2014-2020 beezy Project
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,7 +19,7 @@
 #include "wallet_helpers.h"
 
 
-#define ANDROID_PACKAGE_NAME    "com.chinet_mobile"
+#define ANDROID_PACKAGE_NAME    "com.beezy_mobile"
 
 #define LOGS_FOLDER             "logs"
 
@@ -331,7 +331,7 @@ namespace plain_wallet
   {
     const std::string src_folder_path = get_bundle_working_dir();
     boost::system::error_code ec;
-    const std::string full_target_path = target_dir + "/Chinet_export" + std::to_string(epee::misc_utils::get_tick_count());
+    const std::string full_target_path = target_dir + "/beezy_export" + std::to_string(epee::misc_utils::get_tick_count());
     boost::filesystem::create_directory(full_target_path, ec);
     if (ec)
     {

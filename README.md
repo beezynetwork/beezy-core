@@ -1,7 +1,7 @@
 ## Cloning
 
 Be sure to clone the repository properly:\
-`$ git clone --recursive https://github.com/chinet-project/chinet-core.git`
+`$ git clone --recursive https://github.com/beezynetwork/beezy-core.git`
 
 # Building
 --------
@@ -21,7 +21,7 @@ Be sure to clone the repository properly:\
 
 Note:\
 [*server version*] denotes steps required for building command-line tools (daemon, simplewallet, etc.).\
-[*GUI version*] denotes steps required for building Chinet executable with GUI.
+[*GUI version*] denotes steps required for building beezy executable with GUI.
 
 <br />
 
@@ -91,10 +91,10 @@ For instance, by adding the following lines to `~/.bashrc`
 6. Build the binaries
    1. Build daemon and simplewallet:
 
-          cd chinet/ && make -j1
+          cd beezy/ && make -j1
       or 
    
-          cd chinet && mkdir build && cd build
+          cd beezy && mkdir build && cd build
           cmake ..
           make -j1 daemon simplewallet
 
@@ -104,7 +104,7 @@ For instance, by adding the following lines to `~/.bashrc`
    
    1. Build GUI:
 
-          cd chinet
+          cd beezy
           utils/build_script_linux.sh
           **NOTICE**: Script will accept the following optional arguments `--testnet`, `--build_prefix "foo"`, `--qt_build_tools`
 	 
@@ -117,15 +117,15 @@ Recommended OS version: Windows 7 x64.
 1. Install required prerequisites (Boost, Qt, CMake, OpenSSL).
 2. Edit paths in `utils/configure_local_paths.cmd`.
 3. Run one of `utils/configure_win64_msvsNNNN_gui.cmd` according to your MSVC version.
-4. Go to the build folder and open generated Chinet.sln in MSVC.
+4. Go to the build folder and open generated beezy.sln in MSVC.
 5. Build.
 
 In order to correctly deploy Qt GUI application, you also need to do the following:
 
-6. Copy Chinet.exe to a folder (e.g. `depoy`). 
-7. Run  `PATH_TO_QT\bin\windeployqt.exe deploy\Chinet.exe`.
+6. Copy beezy.exe to a folder (e.g. `depoy`). 
+7. Run  `PATH_TO_QT\bin\windeployqt.exe deploy\beezy.exe`.
 8. Copy folder `src\gui\qt-daemon\layout\html` to `deploy\html`.
-9. Now you can run `Chinet.exe`
+9. Now you can run `beezy.exe`
 
 <br />
 
@@ -140,12 +140,12 @@ To build GUI application:
 1. Create self-signing certificate via Keychain Access:\
     a. Run Keychain Access.\
     b. Choose Keychain Access > Certificate Assistant > Create a Certificate.\
-    c. Use “Chinet” (without quotes) as certificate name.\
+    c. Use “beezy” (without quotes) as certificate name.\
     d. Choose “Code Signing” in “Certificate Type” field.\
     e. Press “Create”, then “Done”.\
     f. Make sure the certificate was added to keychain "System". If not—move it to "System".\
     g. Double click the certificate you've just added, enter the trust section and under "When using this certificate" select "Always trust".\
-    h. Unfold the certificate in Keychain Access window and double click the underlying private key "Chinet". Select "Access Control" tab, then select "Allow all applications to access this item". Click "Save Changes".
+    h. Unfold the certificate in Keychain Access window and double click the underlying private key "beezy". Select "Access Control" tab, then select "Allow all applications to access this item". Click "Save Changes".
 2. Revise building script, comment out unwanted steps and run it:  `utils/build_script_mac_osx.sh`
 3. The application should be here: `/buid_mac_osx_64/release/src`
 

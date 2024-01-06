@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "chinet": {
+    "beezy": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "chinet:build"
+            "browserTarget": "beezy:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "chinet:build:production"
+              "browserTarget": "beezy:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "chinet:build"
+            "browserTarget": "beezy:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
         }
       }
     },
-    "chinet-e2e": {
+    "beezy-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "chinet:serve"
+            "devServerTarget": "beezy:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "chinet:serve:production"
+              "devServerTarget": "beezy:serve:production"
             }
           }
         },
@@ -136,5 +136,5 @@
       }
     }
   },
-  "defaultProject": "chinet"
+  "defaultProject": "beezy"
 }

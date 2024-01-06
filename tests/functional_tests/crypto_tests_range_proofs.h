@@ -1,5 +1,5 @@
-// Copyright (c) 2021 Chinet Project (https://chinet.io)
-// Copyright (c) 2021 sowle (val@chinet.io, crypto.sowle@gmail.com)
+// Copyright (c) 2021 beezy Project (https://beezy.io)
+// Copyright (c) 2021 sowle (val@beezy.io, crypto.sowle@gmail.com)
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #pragma once
@@ -64,9 +64,9 @@ TEST(bpp, basics)
   point_t H2 = hash_helper_t::hp(h2_hash_str.c_str(), h2_hash_str.size());
   ASSERT_EQ(H2, c_point_H2);
   LOG_PRINT_L0("c_point_0 = " << c_point_0 << " = { " << c_point_0.to_hex_comma_separated_uint64_str() << " }");
-  LOG_PRINT_L0("Chinet G =  " << c_point_G << " = { " << c_point_G.to_hex_comma_separated_bytes_str() << " }");
-  LOG_PRINT_L0("Chinet H =  " << H << " = { " << H.to_hex_comma_separated_uint64_str() << " }");
-  LOG_PRINT_L0("Chinet H2 = " << H2 << " = { " << H2.to_hex_comma_separated_uint64_str() << " }");
+  LOG_PRINT_L0("beezy G =  " << c_point_G << " = { " << c_point_G.to_hex_comma_separated_bytes_str() << " }");
+  LOG_PRINT_L0("beezy H =  " << H << " = { " << H.to_hex_comma_separated_uint64_str() << " }");
+  LOG_PRINT_L0("beezy H2 = " << H2 << " = { " << H2.to_hex_comma_separated_uint64_str() << " }");
 
   scalar_vec_t values = { 5 };
   scalar_vec_t masks  = { 0 };
@@ -74,7 +74,7 @@ TEST(bpp, basics)
   std::vector<point_t> commitments;
   uint8_t err = 0;
 
-  bool r = bpp_gen<bpp_crypto_trait_chinet<>>(values, masks, bpp_sig, commitments, &err);
+  bool r = bpp_gen<bpp_crypto_trait_beezy<>>(values, masks, bpp_sig, commitments, &err);
 
   ASSERT_TRUE(r);
 
@@ -102,7 +102,7 @@ TEST(bpp, two)
     scalar_vec_t values = { 5 };
     scalar_vec_t masks = { scalar_t(77 + 256 * 77) };
 
-    r = bpp_gen<bpp_crypto_trait_chinet<>>(values, masks, bpp_sig, commitments, &err);
+    r = bpp_gen<bpp_crypto_trait_beezy<>>(values, masks, bpp_sig, commitments, &err);
     ASSERT_TRUE(r);
 
     sigs.emplace_back(bpp_sig, commitments);
@@ -117,13 +117,13 @@ TEST(bpp, two)
     scalar_vec_t values = { 5, 700, 8 };
     scalar_vec_t masks = { scalar_t(77 + 256 * 77), scalar_t(255), scalar_t(17) };
 
-    r = bpp_gen<bpp_crypto_trait_chinet<>>(values, masks, bpp_sig, commitments, &err);
+    r = bpp_gen<bpp_crypto_trait_beezy<>>(values, masks, bpp_sig, commitments, &err);
     ASSERT_TRUE(r);
 
     sigs.emplace_back(bpp_sig, commitments);
   }
 
-  r = bpp_verify<bpp_crypto_trait_chinet<>>(sigs, &err);
+  r = bpp_verify<bpp_crypto_trait_beezy<>>(sigs, &err);
   ASSERT_TRUE(r);
 
 
@@ -152,7 +152,7 @@ TEST(bpp, power_256)
     scalar_vec_t values = { 5 };
     scalar_vec_t masks = { scalar_t(77 + 256 * 77) };
 
-    r = bpp_gen<bpp_crypto_trait_chinet<>>(values, masks, bpp_sig, commitments, &err);
+    r = bpp_gen<bpp_crypto_trait_beezy<>>(values, masks, bpp_sig, commitments, &err);
     ASSERT_TRUE(r);
 
     sig_it_refs.emplace_back(bpp_sig, commitments);
@@ -167,13 +167,13 @@ TEST(bpp, power_256)
     scalar_vec_t values = { 5, 700, 8 };
     scalar_vec_t masks = { scalar_t(77 + 256 * 77), scalar_t(255), scalar_t(17) };
 
-    r = bpp_gen<bpp_crypto_trait_chinet<>>(values, masks, bpp_sig, commitments, &err);
+    r = bpp_gen<bpp_crypto_trait_beezy<>>(values, masks, bpp_sig, commitments, &err);
     ASSERT_TRUE(r);
 
     sig_it_refs.emplace_back(bpp_sig, commitments);
   }
 
-  r = bpp_verify<bpp_crypto_trait_chinet<>>(sig_it_refs, &err);
+  r = bpp_verify<bpp_crypto_trait_beezy<>>(sig_it_refs, &err);
   ASSERT_TRUE(r);
 
 
@@ -203,7 +203,7 @@ TEST(bppe, basics)
   std::vector<point_t> commitments;
   uint8_t err = 0;
 
-  bool r = bppe_gen<bpp_crypto_trait_chinet<>>(values, masks, masks_2, bppe_sig, commitments, &err);
+  bool r = bppe_gen<bpp_crypto_trait_beezy<>>(values, masks, masks_2, bppe_sig, commitments, &err);
 
   ASSERT_TRUE(r);
 
@@ -231,7 +231,7 @@ TEST(bppe, two)
     scalar_vec_t masks  = { scalar_t(77 + 256 * 77) };
     scalar_vec_t masks2 = { scalar_t(88 + 256 * 88) };
 
-    r = bppe_gen<bpp_crypto_trait_chinet<>>(values, masks, masks2, bppe_sig, commitments, &err);
+    r = bppe_gen<bpp_crypto_trait_beezy<>>(values, masks, masks2, bppe_sig, commitments, &err);
     ASSERT_TRUE(r);
 
     sigs.emplace_back(bppe_sig, commitments);
@@ -247,13 +247,13 @@ TEST(bppe, two)
     scalar_vec_t masks  = { scalar_t(77 + 256 * 77), scalar_t(255), scalar_t(17) };
     scalar_vec_t masks2 = { scalar_t(88 + 256 * 88), scalar_t(1), scalar_t(19) };
 
-    r = bppe_gen<bpp_crypto_trait_chinet<>>(values, masks, masks2, bppe_sig, commitments, &err);
+    r = bppe_gen<bpp_crypto_trait_beezy<>>(values, masks, masks2, bppe_sig, commitments, &err);
     ASSERT_TRUE(r);
 
     sigs.emplace_back(bppe_sig, commitments);
   }
 
-  r = bppe_verify<bpp_crypto_trait_chinet<>>(sigs, &err);
+  r = bppe_verify<bpp_crypto_trait_beezy<>>(sigs, &err);
   ASSERT_TRUE(r);
 
 

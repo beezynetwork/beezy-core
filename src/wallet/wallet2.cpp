@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019 Chinet Project
+// Copyright (c) 2014-2019 beezy Project
 // Copyright (c) 2014-2018 The Louisdor Project
 // Copyright (c) 2012-2013 The Cryptonote developers
 // Distributed under the MIT/X11 software license, see the accompanying
@@ -5481,7 +5481,7 @@ void wallet2::transfer(construct_tx_param& ctp,
 
   if (m_watch_only)
   {
-    bool r = store_unsigned_tx_to_file_and_reserve_transfers(ftp, (p_unsigned_filename_or_tx_blob_str != nullptr ? *p_unsigned_filename_or_tx_blob_str : "chinet_tx_unsigned"), p_unsigned_filename_or_tx_blob_str);
+    bool r = store_unsigned_tx_to_file_and_reserve_transfers(ftp, (p_unsigned_filename_or_tx_blob_str != nullptr ? *p_unsigned_filename_or_tx_blob_str : "beezy_tx_unsigned"), p_unsigned_filename_or_tx_blob_str);
     WLT_THROW_IF_FALSE_WALLET_CMN_ERR_EX(r, "failed to store unsigned tx");
     WLT_LOG_GREEN("[wallet::transfer]" << " prepare_transaction_time: " << print_fixed_decimal_point(prepare_transaction_time, 3), LOG_LEVEL_0);
     return;

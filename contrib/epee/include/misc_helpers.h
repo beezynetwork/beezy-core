@@ -1,4 +1,4 @@
-// Copyright (c) 2019, Chinet Project
+// Copyright (c) 2019, beezy Project
 // Copyright (c) 2006-2019, Andrey N. Sabelnikov, www.sabelnikov.net
 // All rights reserved.
 //

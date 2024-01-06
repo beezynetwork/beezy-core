@@ -1,5 +1,5 @@
-// Copyright (c) 2018-2021 Chinet Project
-// Copyright (c) 2020-2021 sowle (val@chinet.io, crypto.sowle@gmail.com)
+// Copyright (c) 2018-2021 beezy Project
+// Copyright (c) 2020-2021 sowle (val@beezy.io, crypto.sowle@gmail.com)
 // Copyright (c) 2012-2013 The Cryptonote developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.

@@ -1,12 +1,12 @@
-name: chinet
+name: beezy
 base: core18
-adopt-info: chinet
-summary: "Chinet coin: official wallet. Secure. Scalable. Easy to Use."
+adopt-info: beezy
+summary: "beezy coin: official wallet. Secure. Scalable. Easy to Use."
 description: |
-  Chinet is a scalable and secure coin, designed for use in e-commerce.
+  beezy is a scalable and secure coin, designed for use in e-commerce.
   The technology behind our blockchain provides reliability, security,
   and flexibility a perfect option for P2P transactions.
-  More info: http://chinet.io
+  More info: http://beezy.io
 grade: stable
 confinement: strict
 
@@ -15,8 +15,8 @@ architectures:
   - build-on: i386
 
 parts:
-  chinet:
-    source: https://github.com/chinet-project/chinet-core.git
+  beezy:
+    source: https://github.com/beezynetwork/beezy-core.git
     plugin: cmake
     override-pull: |
         snapcraftctl pull
@@ -25,11 +25,11 @@ parts:
       - -DBUILD_GUI=TRUE
     override-build: |
       snapcraftctl build
-      mkdir -p $SNAPCRAFT_PART_INSTALL/opt/Chinet
-      cp $SNAPCRAFT_PART_BUILD/src/Chinet $SNAPCRAFT_PART_INSTALL/opt/Chinet/
-      cp $SNAPCRAFT_PART_BUILD/src/simplewallet $SNAPCRAFT_PART_INSTALL/opt/Chinet/
-      cp $SNAPCRAFT_PART_BUILD/src/chinetd $SNAPCRAFT_PART_INSTALL/opt/Chinet/
-      rsync -a $SNAPCRAFT_PART_SRC/src/gui/qt-daemon/html $SNAPCRAFT_PART_INSTALL/opt/Chinet --exclude less --exclude package.json --exclude gulpfile.js
+      mkdir -p $SNAPCRAFT_PART_INSTALL/opt/beezy
+      cp $SNAPCRAFT_PART_BUILD/src/beezy $SNAPCRAFT_PART_INSTALL/opt/beezy/
+      cp $SNAPCRAFT_PART_BUILD/src/simplewallet $SNAPCRAFT_PART_INSTALL/opt/beezy/
+      cp $SNAPCRAFT_PART_BUILD/src/beezyd $SNAPCRAFT_PART_INSTALL/opt/beezy/
+      rsync -a $SNAPCRAFT_PART_SRC/src/gui/qt-daemon/html $SNAPCRAFT_PART_INSTALL/opt/beezy --exclude less --exclude package.json --exclude gulpfile.js
     build-packages:
       - make
       - g++
@@ -49,8 +49,8 @@ parts:
       - libboost-locale1.65.1
 
 apps:
-  chinet:
-    command: opt/Chinet/Chinet --data-dir $SNAP_USER_COMMON
+  beezy:
+    command: opt/beezy/beezy --data-dir $SNAP_USER_COMMON
     extensions:
       - kde-neon
     plugs:
@@ -62,12 +62,12 @@ apps:
       - audio-playback
       - unity7 #for tray icon support
   simplewallet:
-    command: opt/Chinet/simplewallet
+    command: opt/beezy/simplewallet
     plugs:
       - network
       - home
-  chinetd:
-    command: opt/Chinet/chinetd --data-dir $SNAP_USER_COMMON
+  beezyd:
+    command: opt/beezy/beezyd --data-dir $SNAP_USER_COMMON
     environment:
       LC_ALL: C
     plugs:

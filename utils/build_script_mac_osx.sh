@@ -10,7 +10,7 @@ curr_path=${BASH_SOURCE%/*}
 : "${CMAKE_OSX_SYSROOT:?CMAKE_OSX_SYSROOT should be set to macOS SDK path, e.g.: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk}"
 : "${OPENSSL_ROOT_DIR:?variable not set, see also macosx_build_config.command}"
 
-ARCHIVE_NAME_PREFIX=chinet-macos-x64-
+ARCHIVE_NAME_PREFIX=beezy-macos-x64-
 
 if [ -n "$build_prefix" ]; then
   ARCHIVE_NAME_PREFIX=${ARCHIVE_NAME_PREFIX}${build_prefix}-
@@ -39,9 +39,9 @@ fi
 
 
 
-make -j Chinet
+make -j beezy
 if [ $? -ne 0 ]; then
-    echo "Failed to make Chinet"
+    echo "Failed to make beezy"
     exit 1
 fi
 
@@ -59,63 +59,63 @@ if [ $? -ne 0 ]; then
 fi
 
 # copy all necessary libs into the bundle in order to workaround El Capitan's SIP restrictions
-mkdir -p Chinet.app/Contents/Frameworks/boost_libs
-cp -R "$CHN_BOOST_LIBS_PATH/" Chinet.app/Contents/Frameworks/boost_libs/
+mkdir -p beezy.app/Contents/Frameworks/boost_libs
+cp -R "$CHN_BOOST_LIBS_PATH/" beezy.app/Contents/Frameworks/boost_libs/
 if [ $? -ne 0 ]; then
     echo "Failed to cp workaround to MacOS"
     exit 1
 fi
 
 # rename process name to big letter 
-mv Chinet.app/Contents/MacOS/chinet Chinet.app/Contents/MacOS/Chinet
+mv beezy.app/Contents/MacOS/beezy beezy.app/Contents/MacOS/beezy
 if [ $? -ne 0 ]; then
     echo "Failed to rename process"
     exit 1
 fi
 
-cp chinetd simplewallet Chinet.app/Contents/MacOS/
+cp beezyd simplewallet beezy.app/Contents/MacOS/
 if [ $? -ne 0 ]; then
-    echo "Failed to copy binaries to Chinet.app folder"
+    echo "Failed to copy binaries to beezy.app folder"
     exit 1
 fi
 
 # fix boost libs paths in main executable and libs to workaround El Capitan's SIP restrictions
 source ../../../utils/macosx_fix_boost_libs_path.sh
-fix_boost_libs_in_binary @executable_path/../Frameworks/boost_libs Chinet.app/Contents/MacOS/Chinet
-fix_boost_libs_in_binary @executable_path/../Frameworks/boost_libs Chinet.app/Contents/MacOS/simplewallet
-fix_boost_libs_in_binary @executable_path/../Frameworks/boost_libs Chinet.app/Contents/MacOS/chinetd
-fix_boost_libs_in_libs @executable_path/../Frameworks/boost_libs Chinet.app/Contents/Frameworks/boost_libs
+fix_boost_libs_in_binary @executable_path/../Frameworks/boost_libs beezy.app/Contents/MacOS/beezy
+fix_boost_libs_in_binary @executable_path/../Frameworks/boost_libs beezy.app/Contents/MacOS/simplewallet
+fix_boost_libs_in_binary @executable_path/../Frameworks/boost_libs beezy.app/Contents/MacOS/beezyd
+fix_boost_libs_in_libs @executable_path/../Frameworks/boost_libs beezy.app/Contents/Frameworks/boost_libs
 
 
 
-"$CHN_QT_PATH/clang_64/bin/macdeployqt" Chinet.app
+"$CHN_QT_PATH/clang_64/bin/macdeployqt" beezy.app
 if [ $? -ne 0 ]; then
-    echo "Failed to macdeployqt Chinet.app"
+    echo "Failed to macdeployqt beezy.app"
     exit 1
 fi
 
 
 
-rsync -a ../../../src/gui/qt-daemon/layout/html Chinet.app/Contents/MacOS --exclude less --exclude package.json --exclude gulpfile.js
+rsync -a ../../../src/gui/qt-daemon/layout/html beezy.app/Contents/MacOS --exclude less --exclude package.json --exclude gulpfile.js
 if [ $? -ne 0 ]; then
     echo "Failed to cp html to MacOS"
     exit 1
 fi
 
-cp ../../../src/gui/qt-daemon/app.icns Chinet.app/Contents/Resources
+cp ../../../src/gui/qt-daemon/app.icns beezy.app/Contents/Resources
 if [ $? -ne 0 ]; then
     echo "Failed to cp app.icns to resources"
     exit 1
 fi
 
-codesign -s "Developer ID Application: Chinet Limited" --timestamp --options runtime -f --entitlements ../../../utils/macos_entitlements.plist --deep ./Chinet.app
+codesign -s "Developer ID Application: beezy Limited" --timestamp --options runtime -f --entitlements ../../../utils/macos_entitlements.plist --deep ./beezy.app
 if [ $? -ne 0 ]; then
-    echo "Failed to sign Chinet.app"
+    echo "Failed to sign beezy.app"
     exit 1
 fi
 
 
-read version_str <<< $(DYLD_LIBRARY_PATH=$CHN_BOOST_LIBS_PATH ./connectivity_tool --version | awk '/^Chinet/ { print $2 }')
+read version_str <<< $(DYLD_LIBRARY_PATH=$CHN_BOOST_LIBS_PATH ./connectivity_tool --version | awk '/^beezy/ { print $2 }')
 version_str=${version_str}
 echo $version_str
 
@@ -127,7 +127,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-mv Chinet.app package_folder 
+mv beezy.app package_folder 
 if [ $? -ne 0 ]; then
     echo "Failed to top app package"
     exit 1
@@ -150,7 +150,7 @@ echo "############### Uploading... ################"
 
 package_filepath=$package_filename
 
-scp $package_filepath chinet_build_server:/var/www/html/builds/
+scp $package_filepath beezy_build_server:/var/www/html/builds/
 if [ $? -ne 0 ]; then
     echo "Failed to upload to remote server"
     exit 1
@@ -160,12 +160,12 @@ fi
 read checksum <<< $( shasum -a 256 $package_filepath | awk '/^/ { print $1 }' )
 
 mail_msg="New ${build_prefix_label}${testnet_label}build for macOS-x64:<br>
-https://build.chinet.io/builds/$package_filename<br>
+https://build.beezy.io/builds/$package_filename<br>
 sha256: $checksum"
 
 echo "$mail_msg"
 
-echo "$mail_msg" | mail -s "Chinet macOS-x64 ${build_prefix_label}${testnet_label}build $version_str" ${emails}
+echo "$mail_msg" | mail -s "beezy macOS-x64 ${build_prefix_label}${testnet_label}build $version_str" ${emails}
 
 
 ######################
@@ -178,11 +178,11 @@ echo "Notarizing..."
 
 # creating archive for notarizing
 echo "Creating archive for notarizing"
-rm -f Chinet.zip
-/usr/bin/ditto -c -k --keepParent ./Chinet.app ./Chinet.zip
+rm -f beezy.zip
+/usr/bin/ditto -c -k --keepParent ./beezy.app ./beezy.zip
 
 tmpfile="tmptmptmp"
-xcrun altool --notarize-app --primary-bundle-id "org.chinet.desktop" -u "dev@chinet.io" -p "@keychain:Developer-altool" --file ./Chinet.zip > $tmpfile 2>&1
+xcrun altool --notarize-app --primary-bundle-id "org.beezy.desktop" -u "dev@beezy.io" -p "@keychain:Developer-altool" --file ./beezy.zip > $tmpfile 2>&1
 NOTARIZE_RES=$?
 NOTARIZE_OUTPUT=$( cat $tmpfile )
 rm $tmpfile
@@ -203,7 +203,7 @@ success=0
 
 # check notarization status
 for i in {1..10}; do
-    xcrun altool --notarization-info $GUID -u "dev@chinet.io" -p "@keychain:Developer-altool" > $tmpfile 2>&1
+    xcrun altool --notarization-info $GUID -u "dev@beezy.io" -p "@keychain:Developer-altool" > $tmpfile 2>&1
     NOTARIZE_OUTPUT=$( cat $tmpfile )
     rm $tmpfile 
     NOTARIZATION_LOG_URL=$(echo "$NOTARIZE_OUTPUT" | sed -n "s/.*LogFileURL\: \([[:graph:]]*\).*/\1/p")

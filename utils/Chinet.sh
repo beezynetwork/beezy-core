@@ -7,12 +7,12 @@ export QT_PLUGIN_PATH=$script_dir/lib
 echo $LD_LIBRARY_PATH
 echo $QT_PLUGIN_PATH
 
-out_file_name=~/.local/share/applications/Chinet.desktop
+out_file_name=~/.local/share/applications/beezy.desktop
 
 call_app()
 {
   pushd $script_dir
-  ./Chinet "$@"
+  ./beezy "$@"
   popd
   exit
 }
@@ -25,20 +25,20 @@ create_desktop_icon()
     rm -f $target_file_name
     echo [Desktop Entry] | tee -a $target_file_name  > /dev/null
     echo Version=1.0 | tee -a $target_file_name  > /dev/null
-    echo Name=Chinet | tee -a $target_file_name > /dev/null
-    echo GenericName=Chinet | tee -a $target_file_name  > /dev/null
+    echo Name=beezy | tee -a $target_file_name > /dev/null
+    echo GenericName=beezy | tee -a $target_file_name  > /dev/null
     echo Comment=Privacy blockchain | tee -a $target_file_name > /dev/null
     echo Icon=$script_dir/html/files/desktop_linux_icon.png | tee -a $target_file_name > /dev/null
-    echo Exec=$script_dir/Chinet.sh --deeplink-params=%u | tee -a $target_file_name  > /dev/null
+    echo Exec=$script_dir/beezy.sh --deeplink-params=%u | tee -a $target_file_name  > /dev/null
     echo Terminal=true | tee -a $target_file_name  > /dev/null
     echo Type=Application | tee -a $target_file_name  > /dev/null
     echo "Categories=Qt;Utility;" | tee -a $target_file_name  > /dev/null
-    echo "MimeType=x-scheme-handler/chinet;" | tee -a $target_file_name  > /dev/null
+    echo "MimeType=x-scheme-handler/beezy;" | tee -a $target_file_name  > /dev/null
 }
 
 
 create_desktop_icon $out_file_name
 
-xdg-mime default Chinet.desktop x-scheme-handler/chinet
+xdg-mime default beezy.desktop x-scheme-handler/beezy
 
 call_app "$@"

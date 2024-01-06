@@ -1,5 +1,5 @@
 ﻿/*-
- * Copyright (c) 2021, Chinet project, https://chinet.io
+ * Copyright (c) 2021, beezy project, https://beezy.io
  * Copyright (c) 2021, Mikhail Butolin, bml505@hotmail.com
  * All rights reserved.
  *

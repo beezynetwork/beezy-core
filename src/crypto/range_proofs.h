@@ -1,5 +1,5 @@
-// Copyright (c) 2021-2022 Chinet Project (https://chinet.io)
-// Copyright (c) 2021-2022 sowle (val@chinet.io, crypto.sowle@gmail.com)
+// Copyright (c) 2021-2022 beezy Project (https://beezy.io)
+// Copyright (c) 2021-2022 sowle (val@beezy.io, crypto.sowle@gmail.com)
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #pragma once
@@ -54,10 +54,10 @@ namespace crypto
 
   
   ////////////////////////////////////////
-  // crypto trait for Chinet
+  // crypto trait for beezy
   ////////////////////////////////////////
   template<size_t N = 64, size_t values_max = 16>
-  struct bpp_crypto_trait_chinet
+  struct bpp_crypto_trait_beezy
   {
     static constexpr size_t c_bpp_n           = N;                           // the upper bound for the witness's range
     static constexpr size_t c_bpp_values_max  = values_max;                  // maximum number of elements in BP+ proof, i.e. max allowed BP+ outputs
@@ -76,7 +76,7 @@ namespace crypto
 
     static const scalar_t& get_initial_transcript()
     {
-      static scalar_t value = hash_helper_t::hs("Chinet BP+ initial transcript");
+      static scalar_t value = hash_helper_t::hs("beezy BP+ initial transcript");
       return value;
     }
 
@@ -98,7 +98,7 @@ namespace crypto
       static bool calculated = false;
       if (!calculated)
       {
-        scalar_t hash_buf[2] = { hash_helper_t::hs("Chinet BP+ generator"), 0 };
+        scalar_t hash_buf[2] = { hash_helper_t::hs("beezy BP+ generator"), 0 };
         for (size_t i = 0; i < 2 * c_bpp_mn_max; ++i)
         {
           hash_buf[1].m_u64[0] = i;
@@ -118,13 +118,13 @@ namespace crypto
 
     static const point_t& bpp_H;
     static const point_t& bpp_H2;
-  }; // struct bpp_crypto_trait_chinet
+  }; // struct bpp_crypto_trait_beezy
 
   template<size_t N, size_t values_max>
-  const point_t& bpp_crypto_trait_chinet<N, values_max>::bpp_H = c_point_H;
+  const point_t& bpp_crypto_trait_beezy<N, values_max>::bpp_H = c_point_H;
 
   template<size_t N, size_t values_max>
-  const point_t& bpp_crypto_trait_chinet<N, values_max>::bpp_H2 = c_point_H2;
+  const point_t& bpp_crypto_trait_beezy<N, values_max>::bpp_H2 = c_point_H2;
 
   
   // efficient multiexponentiation (naive stub implementation atm, TODO)

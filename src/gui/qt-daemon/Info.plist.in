@@ -10,7 +10,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>Chinet</string>
+	<string>beezy</string>
 	<key>CFBundleIconFile</key>
 	<string>app.icns</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -24,7 +24,7 @@
 	<key>CFBundleVersion</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>Chinet</string>
+	<string>beezy</string>
 	<key>CSResourcesFileMapped</key>
 	<true/>
 	<key>DTCompiler</key>
@@ -51,10 +51,10 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>ChinetApp</string>
+			<string>beezyApp</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>chinet</string>
+				<string>beezy</string>
 			</array>
 		</dict>
 	</array>

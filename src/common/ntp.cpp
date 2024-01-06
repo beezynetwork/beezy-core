@@ -1,4 +1,4 @@
-// Copyright (c) 2019 Chinet Project
+// Copyright (c) 2019 beezy Project
 
 // Note: class udp_blocking_client is a slightly modified version of an example
 // taken from https://www.boost.org/doc/libs/1_53_0/doc/html/boost_asio/example/timeouts/blocking_udp_client.cpp

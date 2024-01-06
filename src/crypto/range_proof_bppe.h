@@ -1,5 +1,5 @@
-// Copyright (c) 2022 Chinet Project (https://chinet.io)
-// Copyright (c) 2022 sowle (val@chinet.io, crypto.sowle@gmail.com)
+// Copyright (c) 2022 beezy Project (https://beezy.io)
+// Copyright (c) 2022 sowle (val@beezy.io, crypto.sowle@gmail.com)
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #pragma once

@@ -72,7 +72,7 @@ export class DeeplinkComponent implements OnInit, OnDestroy {
     const spaceSymbolRex = new RegExp(/%20/g);
     const newobj = {};
 
-    const newstring = string.substr(5) // delete chinet:;
+    const newstring = string.substr(5) // delete beezy:;
     newstring.split('&').forEach((string) => {
       const [key, value] = string.split('=');
       newobj[key] = value.replace(qoutesRex, '').replace(spaceSymbolRex, " ").trim();

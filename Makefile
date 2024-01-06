@@ -1,4 +1,4 @@
-# Copyright (c) 2022-2023 Chinet Project
+# Copyright (c) 2022-2023 beezy Project
 # Copyright (c) 2014 The Cryptonote developers
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.

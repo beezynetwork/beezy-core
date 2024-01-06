@@ -11,7 +11,7 @@
 # export QT_PREFIX_PATH=/home/user/Qt5.10.1/5.10.1/gcc_64
 # export OPENSSL_ROOT_DIR=/home/user/openssl
 
-ARCHIVE_NAME_PREFIX=chinet-linux-x64-
+ARCHIVE_NAME_PREFIX=beezy-linux-x64-
 
 : "${BOOST_ROOT:?BOOST_ROOT should be set to the root of Boost, ex.: /home/user/boost_1_66_0}"
 : "${QT_PREFIX_PATH:?QT_PREFIX_PATH should be set to Qt libs folder, ex.: /home/user/Qt5.10.1/5.10.1/gcc_64}"
@@ -56,66 +56,66 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-make -j10 Chinet
+make -j10 beezy
 if [ $? -ne 0 ]; then
     echo "Failed to make!"
     exit 1
 fi
 
 
-read version_str <<< $(./src/chinetd --version | awk '/^Chinet/ { print $2 }')
+read version_str <<< $(./src/beezyd --version | awk '/^beezy/ { print $2 }')
 version_str=${version_str}
 echo $version_str
 
-rm -rf Chinet;
-mkdir -p Chinet;
+rm -rf beezy;
+mkdir -p beezy;
 
-rsync -a ../../src/gui/qt-daemon/layout/html ./Chinet --exclude less --exclude package.json --exclude gulpfile.js
-cp -Rv ../../utils/Chinet.sh ./Chinet
-chmod 777 ./Chinet/Chinet.sh
-mkdir ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libicudata.so.56 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libicui18n.so.56 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libicuuc.so.56 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5Core.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5DBus.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5Gui.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5Network.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5OpenGL.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5Positioning.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5PrintSupport.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5Qml.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5Quick.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5Sensors.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5Sql.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5Widgets.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5WebEngine.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5WebEngineCore.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5WebEngineWidgets.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5WebChannel.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5XcbQpa.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/lib/libQt5QuickWidgets.so.5 ./Chinet/lib
-cp $QT_PREFIX_PATH/libexec/QtWebEngineProcess ./Chinet
-cp $QT_PREFIX_PATH/resources/qtwebengine_resources.pak ./Chinet
-cp $QT_PREFIX_PATH/resources/qtwebengine_resources_100p.pak ./Chinet
-cp $QT_PREFIX_PATH/resources/qtwebengine_resources_200p.pak ./Chinet
-cp $QT_PREFIX_PATH/resources/icudtl.dat ./Chinet
+rsync -a ../../src/gui/qt-daemon/layout/html ./beezy --exclude less --exclude package.json --exclude gulpfile.js
+cp -Rv ../../utils/beezy.sh ./beezy
+chmod 777 ./beezy/beezy.sh
+mkdir ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libicudata.so.56 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libicui18n.so.56 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libicuuc.so.56 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5Core.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5DBus.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5Gui.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5Network.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5OpenGL.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5Positioning.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5PrintSupport.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5Qml.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5Quick.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5Sensors.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5Sql.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5Widgets.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5WebEngine.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5WebEngineCore.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5WebEngineWidgets.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5WebChannel.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5XcbQpa.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/lib/libQt5QuickWidgets.so.5 ./beezy/lib
+cp $QT_PREFIX_PATH/libexec/QtWebEngineProcess ./beezy
+cp $QT_PREFIX_PATH/resources/qtwebengine_resources.pak ./beezy
+cp $QT_PREFIX_PATH/resources/qtwebengine_resources_100p.pak ./beezy
+cp $QT_PREFIX_PATH/resources/qtwebengine_resources_200p.pak ./beezy
+cp $QT_PREFIX_PATH/resources/icudtl.dat ./beezy
 
 if [ "$copy_qt_dev_tools" = true ] ; then
-  cp $QT_PREFIX_PATH/resources/qtwebengine_devtools_resources.pak ./Chinet
+  cp $QT_PREFIX_PATH/resources/qtwebengine_devtools_resources.pak ./beezy
 fi
 
-mkdir ./Chinet/lib/platforms
-cp $QT_PREFIX_PATH/plugins/platforms/libqxcb.so ./Chinet/lib/platforms
-mkdir ./Chinet/xcbglintegrations
-cp $QT_PREFIX_PATH/plugins/xcbglintegrations/libqxcb-glx-integration.so ./Chinet/xcbglintegrations
+mkdir ./beezy/lib/platforms
+cp $QT_PREFIX_PATH/plugins/platforms/libqxcb.so ./beezy/lib/platforms
+mkdir ./beezy/xcbglintegrations
+cp $QT_PREFIX_PATH/plugins/xcbglintegrations/libqxcb-glx-integration.so ./beezy/xcbglintegrations
 
-cp -Rv src/chinetd src/Chinet src/simplewallet  src/connectivity_tool ./Chinet
+cp -Rv src/beezyd src/beezy src/simplewallet  src/connectivity_tool ./beezy
 
 package_filename=${ARCHIVE_NAME_PREFIX}${version_str}.tar.bz2
 
 rm -f ./$package_filename
-tar -cjvf $package_filename Chinet
+tar -cjvf $package_filename beezy
 if [ $? -ne 0 ]; then
     echo "Failed to pack"
     exit 1
@@ -129,7 +129,7 @@ fi
 
 echo "Uploading..."
 
-scp $package_filename chinet_build_server:/var/www/html/builds
+scp $package_filename beezy_build_server:/var/www/html/builds
 if [ $? -ne 0 ]; then
     echo "Failed to upload to remote server"
     exit $?
@@ -138,11 +138,11 @@ fi
 read checksum <<< $(sha256sum $package_filename | awk '/^/ { print $1 }' )
 
 mail_msg="New ${build_prefix_label}${testnet_label}${copy_qt_dev_tools_label}build for linux-x64:<br>
-https://build.chinet.io/builds/$package_filename<br>
+https://build.beezy.io/builds/$package_filename<br>
 sha256: $checksum"
 
 echo "$mail_msg"
 
-echo "$mail_msg" | mail -s "Chinet linux-x64 ${build_prefix_label}${testnet_label}${copy_qt_dev_tools_label}build $version_str" ${emails}
+echo "$mail_msg" | mail -s "beezy linux-x64 ${build_prefix_label}${testnet_label}${copy_qt_dev_tools_label}build $version_str" ${emails}
 
 exit 0

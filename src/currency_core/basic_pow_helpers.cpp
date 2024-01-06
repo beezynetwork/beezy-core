@@ -1,4 +1,4 @@
-// Copyright (c) 2018-2019 Chinet Project
+// Copyright (c) 2018-2019 beezy Project
 // Copyright (c) 2018-2019 Hyle Team
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.

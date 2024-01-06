@@ -4,7 +4,7 @@ call configure_local_paths.cmd
 SET LOCAL_BOOST_LIB_PATH=%LOCAL_BOOST_PATH%\lib64-msvc-14.1
 SET QT_MSVC_PATH=%QT_PREFIX_PATH%\msvc2017_64
 
-SET ACHIVE_NAME_PREFIX=chinet-win-x64-
+SET ACHIVE_NAME_PREFIX=beezy-win-x64-
 SET MY_PATH=%~dp0
 SET SOURCES_PATH=%MY_PATH:~0,-7%
 
@@ -68,7 +68,7 @@ IF %ERRORLEVEL% NEQ 0 (
   goto error
 )
 
-msbuild src/Chinet.vcxproj /p:SubSystem="WINDOWS,5.02" /p:Configuration=Release /t:Build
+msbuild src/beezy.vcxproj /p:SubSystem="WINDOWS,5.02" /p:Configuration=Release /t:Build
 
 IF %ERRORLEVEL% NEQ 0 (
   goto error
@@ -103,12 +103,12 @@ cd src\release
 
 mkdir bunch
 
-copy /Y Chinet.exe bunch
-copy /Y chinetd.exe bunch
+copy /Y beezy.exe bunch
+copy /Y beezyd.exe bunch
 copy /Y simplewallet.exe bunch
 copy /Y *.pdb bunch
 
-%QT_MSVC_PATH%\bin\windeployqt.exe bunch\Chinet.exe
+%QT_MSVC_PATH%\bin\windeployqt.exe bunch\beezy.exe
 
 cd bunch
 
@@ -178,25 +178,25 @@ IF %ERRORLEVEL% NEQ 0 (
 
 @echo "   UPLOADING TO SERVER ...."
 
-pscp -load chinet_build_server %installer_path% build.chinet.io:/var/www/html/builds
+pscp -load beezy_build_server %installer_path% build.beezy.io:/var/www/html/builds
 IF %ERRORLEVEL% NEQ 0 (
   @echo "FAILED TO UPLOAD EXE TO SERVER"
   goto error
 )
 call :sha256 %installer_path% installer_checksum
 
-pscp -load chinet_build_server %build_zip_path% build.chinet.io:/var/www/html/builds
+pscp -load beezy_build_server %build_zip_path% build.beezy.io:/var/www/html/builds
 IF %ERRORLEVEL% NEQ 0 (
   @echo "FAILED TO UPLOAD ZIP TO SERVER"
   goto error
 )
 call :sha256 %build_zip_path% build_zip_checksum
 
-set mail_msg="New %build_prefix% %TESTNET_LABEL%build for win-x64:<br>INST: https://build.chinet.io/builds/%installer_file% <br>sha256: %installer_checksum%<br><br>ZIP:  https://build.chinet.io/builds/%build_zip_filename% <br>sha256: %build_zip_checksum%<br>"
+set mail_msg="New %build_prefix% %TESTNET_LABEL%build for win-x64:<br>INST: https://build.beezy.io/builds/%installer_file% <br>sha256: %installer_checksum%<br><br>ZIP:  https://build.beezy.io/builds/%build_zip_filename% <br>sha256: %build_zip_checksum%<br>"
 
 echo %mail_msg%
 
-senditquiet.exe  -t %emails% -subject "Chinet win-x64 %build_prefix% %TESTNET_LABEL%build %version%" -body %mail_msg%
+senditquiet.exe  -t %emails% -subject "beezy win-x64 %build_prefix% %TESTNET_LABEL%build %version%" -body %mail_msg%
 
 
 goto success
