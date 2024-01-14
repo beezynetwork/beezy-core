@@ -28,11 +28,13 @@
 
 #pragma once
 #include <boost/thread.hpp>
-#include <boost/bind.hpp> 
+#include <boost/bind/bind.hpp> 
 
 #include "net/http_server_cp2.h"
 #include "transport_defs.h"
 #include "net/http_server_handlers_map2.h"
+
+using namespace boost::placeholders
 
 using namespace epee;
 

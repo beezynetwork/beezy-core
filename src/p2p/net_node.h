@@ -6,7 +6,7 @@
 
 #pragma once
 #include <boost/thread.hpp>
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <boost/foreach.hpp>
 #include <boost/bimap.hpp>
 #include <boost/multi_index_container.hpp>
@@ -17,6 +17,7 @@
 #include <boost/program_options/options_description.hpp>
 #include <boost/program_options/variables_map.hpp>
 #include <boost/serialization/version.hpp>
+using namespace boost::placeholders
 
 #include "warnings.h"
 #include "net/levin_server_cp2.h"

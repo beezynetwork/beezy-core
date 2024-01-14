@@ -13,12 +13,14 @@
 #include <boost/asio/deadline_timer.hpp>
 #include <boost/asio/io_service.hpp>
 #include <boost/asio/ip/udp.hpp>
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <boost/date_time/posix_time/posix_time_types.hpp>
 #include <boost/array.hpp>
 #include <epee/include/misc_log_ex.h>
 #include <chrono>
 #include "ntp.h"
+
+using namespace boost::placeholders
 
 using boost::asio::deadline_timer;
 using boost::asio::ip::udp;
